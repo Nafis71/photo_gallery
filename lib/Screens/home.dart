@@ -17,7 +17,6 @@ class _HomeState extends State<Home> {
   void initState() {
     cards = CardData.cards;
     itemCount = cards.length;
-    print(itemCount);
     super.initState();
   }
 
@@ -102,7 +101,7 @@ class _HomeState extends State<Home> {
                 alignment: Alignment.bottomLeft,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
+                      horizontal: 20.0, vertical: 12.0),
                   child: Text(
                     cards[index]["AlbumName"]!,
                     style: const TextStyle(

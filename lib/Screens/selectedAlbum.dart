@@ -1,54 +1,448 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:photo_gallery/Data/cardData.dart';
 
 class SelectedAlbum extends StatelessWidget {
   late int index;
   late List<Map<String, String>> cards;
-  SelectedAlbum({super.key, required this.index}){
+
+  SelectedAlbum({super.key, required this.index}) {
     cards = CardData.cards;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: InkWell(
-            splashColor: Colors.transparent,
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Colors.white38,
-                  borderRadius: BorderRadius.circular(10.0)),
-              child: const Center(
-                child: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Colors.white,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white38,
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: const Center(
+                  child: Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
           ),
+          title: Text(cards[index]["AlbumName"]!),
+          titleTextStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+          centerTitle: true,
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) => [],
+              iconColor: Colors.white,
+              iconSize: 32,
+            )
+          ],
+          backgroundColor: const Color(0xFF2CAB00),
         ),
-        title: Text(cards[index]["AlbumName"]!),
-        titleTextStyle: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
-        centerTitle: true,
-        actions: [
-          PopupMenuButton(
-            itemBuilder: (context) => [],
-            iconColor: Colors.white,
-            iconSize: 32,
-          )
-        ],
-        backgroundColor: const Color(0xFF2CAB00),
-      ),
-    );
+        body: OrientationBuilder(
+          builder: (BuildContext context, Orientation orientation) {
+            if (orientation == Orientation.portrait) {
+              return portraitTree(context);
+            } else {
+              return landscapeTree(context);
+            }
+          },
+        ));
+  }
+
+  Widget portraitTree(BuildContext context) {
+    return SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 325,
+                  margin: const EdgeInsets.all(10.00),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.00),
+                    image: DecorationImage(
+                      image: NetworkImage(cards[index]["AlbumPicture"]!),
+                      fit: BoxFit.cover,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.50),
+                        spreadRadius: 0,
+                        blurRadius: 35,
+                        offset: const Offset(5, 12),
+                        blurStyle: BlurStyle.normal,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.00, vertical: 10.00),
+                  child: Text(
+                    cards[index]["AlbumHeader"]!,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )
+              ],
+            ),
+            Wrap(
+              alignment: WrapAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.00, vertical: 10.00),
+                  child: Text(
+                    cards[index]["AlbumDescription"]!,
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.00),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 51,
+                    child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF2CAB00),
+                          foregroundColor: Colors.white,
+                          textStyle: const TextStyle(fontSize: 20),
+                          elevation: 15,
+                        ),
+                        child: const Text("See More")),
+                  ),
+                )
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.00),
+                  child: Text(
+                    "Suggestions",
+                    style: TextStyle(
+                        color: Color(0xFF2CAB00),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                    width: 180,
+                    height: 180,
+                    margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                              "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.25), BlendMode.darken),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.50),
+                            spreadRadius: 0,
+                            blurRadius: 30,
+                            offset: const Offset(0, 15),
+                            blurStyle: BlurStyle.normal,
+                          )
+                        ]),
+                    alignment: Alignment.bottomLeft,
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 15.0),
+                      child: Text(
+                        "Dawn",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    )),
+                Container(
+                    width: 180,
+                    height: 180,
+                    margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                              "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.25), BlendMode.darken),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.50),
+                            spreadRadius: 0,
+                            blurRadius: 30,
+                            offset: const Offset(0, 15),
+                            blurStyle: BlurStyle.normal,
+                          )
+                        ]),
+                    alignment: Alignment.bottomLeft,
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 15.0),
+                      child: Text(
+                        "Leaves",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ))
+              ],
+            )
+          ],
+        ));
+  }
+
+  Widget landscapeTree(BuildContext context) {
+    return SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: 298,
+                margin: const EdgeInsets.only(top: 20.00, left: 20.00),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.00),
+                  image: DecorationImage(
+                    image: NetworkImage(cards[index]["AlbumPicture"]!),
+                    fit: BoxFit.cover,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.50),
+                      spreadRadius: 0,
+                      blurRadius: 35,
+                      offset: const Offset(5, 12),
+                      blurStyle: BlurStyle.normal,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+                child: SizedBox(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30.00, vertical: 20.00),
+                        child: Text(
+                          cards[index]["AlbumHeader"]!,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      )
+                    ],
+                  ),
+                  Wrap(
+                    alignment: WrapAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30.00, vertical: 00.00),
+                        child: Text(
+                          cards[index]["AlbumDescription"]!,
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.00),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: 51,
+                          child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF2CAB00),
+                                foregroundColor: Colors.white,
+                                textStyle: const TextStyle(fontSize: 20),
+                                elevation: 15,
+                              ),
+                              child: const Text("See More")),
+                        ),
+                      )
+                    ],
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.00),
+                        child: Text(
+                          "Suggestions",
+                          style: TextStyle(
+                              color: Color(0xFF2CAB00),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                          width: 180,
+                          height: 180,
+                          margin:
+                              const EdgeInsets.only(top: 20.0, bottom: 10.00),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              image: DecorationImage(
+                                image: const NetworkImage(
+                                    "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.25),
+                                    BlendMode.darken),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.50),
+                                  spreadRadius: 0,
+                                  blurRadius: 30,
+                                  offset: const Offset(0, 15),
+                                  blurStyle: BlurStyle.normal,
+                                )
+                              ]),
+                          alignment: Alignment.bottomLeft,
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 15.0),
+                            child: Text(
+                              "Dawn",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          )),
+                      Container(
+                          width: 180,
+                          height: 180,
+                          margin:
+                              const EdgeInsets.only(top: 20.0, bottom: 10.00),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              image: DecorationImage(
+                                image: const NetworkImage(
+                                    "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.25),
+                                    BlendMode.darken),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.50),
+                                  spreadRadius: 0,
+                                  blurRadius: 30,
+                                  offset: const Offset(0, 15),
+                                  blurStyle: BlurStyle.normal,
+                                )
+                              ]),
+                          alignment: Alignment.bottomLeft,
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 15.0),
+                            child: Text(
+                              "Leaves",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ))
+                    ],
+                  )
+                ],
+              ),
+            ))
+          ],
+        ));
   }
 }
-
