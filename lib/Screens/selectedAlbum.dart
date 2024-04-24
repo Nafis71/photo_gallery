@@ -41,7 +41,11 @@ class SelectedAlbum extends StatelessWidget {
           ),
           title: Text(cards[index]["AlbumName"]!),
           titleTextStyle: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              letterSpacing: 0.5),
           centerTitle: true,
           actions: [
             PopupMenuButton(
@@ -110,7 +114,9 @@ class SelectedAlbum extends StatelessWidget {
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 24,
-                        fontWeight: FontWeight.w400),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.5),
                   ),
                 )
               ],
@@ -125,10 +131,11 @@ class SelectedAlbum extends StatelessWidget {
                     cards[index]["AlbumDescription"]!,
                     textAlign: TextAlign.start,
                     style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.5),
                   ),
                 )
               ],
@@ -147,7 +154,10 @@ class SelectedAlbum extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF2CAB00),
                           foregroundColor: Colors.white,
-                          textStyle: const TextStyle(fontSize: 20),
+                          textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.5),
                           elevation: 15,
                         ),
                         child: const Text("See More")),
@@ -166,7 +176,9 @@ class SelectedAlbum extends StatelessWidget {
                     style: TextStyle(
                         color: Color(0xFF2CAB00),
                         fontSize: 20,
-                        fontWeight: FontWeight.w400),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.5),
                   ),
                 )
               ],
@@ -298,7 +310,9 @@ class SelectedAlbum extends StatelessWidget {
                           style: const TextStyle(
                               color: Colors.black,
                               fontSize: 24,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.5),
                         ),
                       )
                     ],
@@ -313,10 +327,11 @@ class SelectedAlbum extends StatelessWidget {
                           cards[index]["AlbumDescription"]!,
                           textAlign: TextAlign.start,
                           style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                          ),
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.5),
                         ),
                       )
                     ],
@@ -335,7 +350,10 @@ class SelectedAlbum extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF2CAB00),
                                 foregroundColor: Colors.white,
-                                textStyle: const TextStyle(fontSize: 20),
+                                textStyle: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.5),
                                 elevation: 15,
                               ),
                               child: const Text("See More")),
@@ -354,7 +372,9 @@ class SelectedAlbum extends StatelessWidget {
                           style: TextStyle(
                               color: Color(0xFF2CAB00),
                               fontSize: 20,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.5),
                         ),
                       )
                     ],

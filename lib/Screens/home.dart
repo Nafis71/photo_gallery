@@ -42,7 +42,11 @@ class _HomeState extends State<Home> {
           ),
           title: const Text("Photo Gallery"),
           titleTextStyle: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              letterSpacing: 0.5),
           centerTitle: true,
           actions: [
             PopupMenuButton(
