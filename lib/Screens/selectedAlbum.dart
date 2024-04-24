@@ -129,7 +129,7 @@ class SelectedAlbum extends StatelessWidget {
                       horizontal: 30.00, vertical: 10.00),
                   child: Text(
                     cards[index]["AlbumDescription"]!,
-                    textAlign: TextAlign.start,
+                    textAlign: TextAlign.justify,
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
@@ -188,7 +188,7 @@ class SelectedAlbum extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                    width: 180,
+                    width: MediaQuery.of(context).size.width * 0.45,
                     height: 180,
                     margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
                     decoration: BoxDecoration(
@@ -223,7 +223,7 @@ class SelectedAlbum extends StatelessWidget {
                       ),
                     )),
                 Container(
-                    width: 180,
+                    width: MediaQuery.of(context).size.width * 0.45,
                     height: 180,
                     margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
                     decoration: BoxDecoration(
@@ -271,7 +271,7 @@ class SelectedAlbum extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
+            Flexible(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.4,
                 height: 298,
@@ -295,12 +295,11 @@ class SelectedAlbum extends StatelessWidget {
               ),
             ),
             Expanded(
-                child: SizedBox(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
+                  Wrap(
+                    alignment: WrapAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -314,7 +313,7 @@ class SelectedAlbum extends StatelessWidget {
                               fontFamily: 'Poppins',
                               letterSpacing: 0.5),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   Wrap(
@@ -325,7 +324,7 @@ class SelectedAlbum extends StatelessWidget {
                             horizontal: 30.00, vertical: 00.00),
                         child: Text(
                           cards[index]["AlbumDescription"]!,
-                          textAlign: TextAlign.start,
+                          textAlign: TextAlign.justify,
                           style: const TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -379,15 +378,15 @@ class SelectedAlbum extends StatelessWidget {
                       )
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.max,
+                  Wrap(
+                    alignment: WrapAlignment.start,
+                    spacing: 4,
                     children: [
                       Container(
                           width: 180,
                           height: 180,
-                          margin:
-                              const EdgeInsets.only(top: 20.0, bottom: 10.00),
+                          margin: const EdgeInsets.only(
+                              top: 20.0, bottom: 10.00, left: 30.00),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30.0),
                               image: DecorationImage(
@@ -461,7 +460,7 @@ class SelectedAlbum extends StatelessWidget {
                   )
                 ],
               ),
-            ))
+            )
           ],
         ));
   }
