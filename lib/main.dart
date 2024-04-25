@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:photo_gallery/Screens/home.dart';
 
-main(){
+main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override

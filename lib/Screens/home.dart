@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(10.0),
             child: InkWell(
               splashColor: Colors.transparent,
-              onTap: (){
+              onTap: () {
                 SystemNavigator.pop();
               },
               child: Container(

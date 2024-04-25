@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:photo_gallery/Data/cardData.dart';
 
 class SelectedAlbum extends StatelessWidget {
@@ -271,9 +268,9 @@ class SelectedAlbum extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
+            Expanded(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.4,
+                width: MediaQuery.of(context).size.width * 0.35,
                 height: 298,
                 margin: const EdgeInsets.only(top: 20.00, left: 20.00),
                 decoration: BoxDecoration(
@@ -378,85 +375,86 @@ class SelectedAlbum extends StatelessWidget {
                       )
                     ],
                   ),
-                  Wrap(
-                    alignment: WrapAlignment.start,
-                    spacing: 4,
-                    children: [
-                      Container(
-                          width: 180,
-                          height: 180,
-                          margin: const EdgeInsets.only(
-                              top: 20.0, bottom: 10.00, left: 30.00),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              image: DecorationImage(
-                                image: const NetworkImage(
-                                    "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.25),
-                                    BlendMode.darken),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.22,
+                            height: MediaQuery.of(context).size.width * 0.22,
+                            margin: const EdgeInsets.only(bottom: 10.00),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.0),
+                                image: DecorationImage(
+                                  image: const NetworkImage(
+                                      "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                                  fit: BoxFit.cover,
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.25),
+                                      BlendMode.darken),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.50),
+                                    spreadRadius: 0,
+                                    blurRadius: 30,
+                                    offset: const Offset(0, 15),
+                                    blurStyle: BlurStyle.normal,
+                                  )
+                                ]),
+                            alignment: Alignment.bottomLeft,
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 15.0),
+                              child: Text(
+                                "Dawn",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.50),
-                                  spreadRadius: 0,
-                                  blurRadius: 30,
-                                  offset: const Offset(0, 15),
-                                  blurStyle: BlurStyle.normal,
-                                )
-                              ]),
-                          alignment: Alignment.bottomLeft,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 15.0),
-                            child: Text(
-                              "Dawn",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
+                            )),
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.22,
+                            height: MediaQuery.of(context).size.width * 0.22,
+                            margin: const EdgeInsets.only(bottom: 10.00),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.0),
+                                image: DecorationImage(
+                                  image: const NetworkImage(
+                                      "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                                  fit: BoxFit.cover,
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.25),
+                                      BlendMode.darken),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.50),
+                                    spreadRadius: 0,
+                                    blurRadius: 30,
+                                    offset: const Offset(0, 15),
+                                    blurStyle: BlurStyle.normal,
+                                  )
+                                ]),
+                            alignment: Alignment.bottomLeft,
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 15.0),
+                              child: Text(
+                                "Leaves",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                            ),
-                          )),
-                      Container(
-                          width: 180,
-                          height: 180,
-                          margin:
-                              const EdgeInsets.only(top: 20.0, bottom: 10.00),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              image: DecorationImage(
-                                image: const NetworkImage(
-                                    "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.25),
-                                    BlendMode.darken),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.50),
-                                  spreadRadius: 0,
-                                  blurRadius: 30,
-                                  offset: const Offset(0, 15),
-                                  blurStyle: BlurStyle.normal,
-                                )
-                              ]),
-                          alignment: Alignment.bottomLeft,
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 15.0),
-                            child: Text(
-                              "Leaves",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ))
-                    ],
+                            ))
+                      ],
+                    ),
                   )
                 ],
               ),
