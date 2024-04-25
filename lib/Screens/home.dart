@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:photo_gallery/Data/cardData.dart';
 import 'package:photo_gallery/Screens/selectedAlbum.dart';
 
@@ -26,16 +27,22 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Colors.white38,
-                  borderRadius: BorderRadius.circular(10.0)),
-              child: const Center(
-                child: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Colors.white,
+            child: InkWell(
+              splashColor: Colors.transparent,
+              onTap: (){
+                SystemNavigator.pop();
+              },
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white38,
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: const Center(
+                  child: Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
