@@ -361,7 +361,7 @@ class SelectedAlbum extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.00),
+                        padding: EdgeInsets.only(left: 30.00,bottom: 20.00),
                         child: Text(
                           "Suggestions",
                           style: TextStyle(
