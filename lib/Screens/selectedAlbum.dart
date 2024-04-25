@@ -99,9 +99,8 @@ class SelectedAlbum extends StatelessWidget {
                 )
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
+            Wrap(
+              alignment: WrapAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(
