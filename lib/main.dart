@@ -10,12 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       title: "Gallery App",
       home: Home(),
-      theme: ThemeData(
-
-      ),
     );
   }
 }
