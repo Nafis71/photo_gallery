@@ -80,7 +80,7 @@ class SelectedAlbum extends StatelessWidget {
               children: [
                 Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.35,
+                    height: 325,
                     margin: const EdgeInsets.all(10.00),
                     decoration: ContainerTheme.getContainerBoxDecoration(
                         cards: cards,
@@ -201,7 +201,7 @@ class SelectedAlbum extends StatelessWidget {
             Expanded(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.35,
-                height: MediaQuery.of(context).size.height * 0.76,
+                height: 298,
                 margin: const EdgeInsets.only(top: 15.00, left: 20.00),
                 decoration: ContainerTheme.getContainerBoxDecoration(
                     cards: cards,
@@ -280,7 +280,7 @@ class SelectedAlbum extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 30.00, bottom: 20.00),
+                        padding: const EdgeInsets.only(left: 30.00, bottom: 20.00),
                         child: Text(
                           "Suggestions",
                           style: TextThemes.getTextStyle(
@@ -355,7 +355,7 @@ class SelectedAlbum extends StatelessWidget {
     } else {
       return Container(
           width: MediaQuery.of(context).size.width * 0.22,
-          height: MediaQuery.of(context).size.width * 0.22,
+          height: 180,
           margin: const EdgeInsets.only(bottom: 10.00),
           decoration: ContainerTheme.getBottomContainerBoxDecoration(
               containerImage: containerImage,
