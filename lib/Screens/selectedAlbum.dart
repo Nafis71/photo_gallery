@@ -56,15 +56,15 @@ class SelectedAlbum extends StatelessWidget {
         body: OrientationBuilder(
           builder: (BuildContext context, Orientation orientation) {
             if (orientation == Orientation.portrait) {
-              return portraitTree(context);
+              return portraitTree(context, orientation);
             } else {
-              return landscapeTree(context);
+              return landscapeTree(context, orientation);
             }
           },
         ));
   }
 
-  Widget portraitTree(BuildContext context) {
+  Widget portraitTree(BuildContext context, Orientation orientation) {
     return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -183,83 +183,25 @@ class SelectedAlbum extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: 180,
-                    margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        image: DecorationImage(
-                          image: const NetworkImage(
-                              "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.25), BlendMode.darken),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.50),
-                            spreadRadius: 0,
-                            blurRadius: 30,
-                            offset: const Offset(0, 15),
-                            blurStyle: BlurStyle.normal,
-                          )
-                        ]),
-                    alignment: Alignment.bottomLeft,
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 15.0),
-                      child: Text(
-                        "Dawn",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    )),
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: 180,
-                    margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        image: DecorationImage(
-                          image: const NetworkImage(
-                              "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.25), BlendMode.darken),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.50),
-                            spreadRadius: 0,
-                            blurRadius: 30,
-                            offset: const Offset(0, 15),
-                            blurStyle: BlurStyle.normal,
-                          )
-                        ]),
-                    alignment: Alignment.bottomLeft,
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 15.0),
-                      child: Text(
-                        "Leaves",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ))
+                bottomContainer(
+                    orientation: orientation,
+                    context: context,
+                    containerLabel: "Dawn",
+                    containerImage:
+                    "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                bottomContainer(
+                    orientation: orientation,
+                    context: context,
+                    containerLabel: "Leaves",
+                    containerImage:
+                    "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
               ],
             )
           ],
         ));
   }
 
-  Widget landscapeTree(BuildContext context) {
+  Widget landscapeTree(BuildContext context, Orientation orientation) {
     return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Row(
@@ -320,7 +262,7 @@ class SelectedAlbum extends StatelessWidget {
                             horizontal: 30.00, vertical: 00.00),
                         child: Text(
                           cards[index]["AlbumDescription"]!,
-                          textAlign: TextAlign.justify,
+                          textAlign: TextAlign.start,
                           style: const TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -361,7 +303,7 @@ class SelectedAlbum extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 30.00,bottom: 20.00),
+                        padding: EdgeInsets.only(left: 30.00, bottom: 20.00),
                         child: Text(
                           "Suggestions",
                           style: TextStyle(
@@ -380,78 +322,18 @@ class SelectedAlbum extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.width * 0.22,
-                            margin: const EdgeInsets.only(bottom: 10.00),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30.0),
-                                image: DecorationImage(
-                                  image: const NetworkImage(
-                                      "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.25),
-                                      BlendMode.darken),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.50),
-                                    spreadRadius: 0,
-                                    blurRadius: 30,
-                                    offset: const Offset(0, 15),
-                                    blurStyle: BlurStyle.normal,
-                                  )
-                                ]),
-                            alignment: Alignment.bottomLeft,
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 15.0),
-                              child: Text(
-                                "Dawn",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            )),
-                        Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.width * 0.22,
-                            margin: const EdgeInsets.only(bottom: 10.00),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30.0),
-                                image: DecorationImage(
-                                  image: const NetworkImage(
-                                      "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.25),
-                                      BlendMode.darken),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.50),
-                                    spreadRadius: 0,
-                                    blurRadius: 30,
-                                    offset: const Offset(0, 15),
-                                    blurStyle: BlurStyle.normal,
-                                  )
-                                ]),
-                            alignment: Alignment.bottomLeft,
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 15.0),
-                              child: Text(
-                                "Leaves",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ))
+                        bottomContainer(
+                            orientation: orientation,
+                            context: context,
+                            containerLabel: "Dawn",
+                            containerImage:
+                                "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                        bottomContainer(
+                            orientation: orientation,
+                            context: context,
+                            containerLabel: "Leaves",
+                            containerImage:
+                                "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
                       ],
                     ),
                   )
@@ -460,5 +342,83 @@ class SelectedAlbum extends StatelessWidget {
             )
           ],
         ));
+  }
+
+  Widget bottomContainer(
+      {required Orientation orientation,
+      required BuildContext context,
+      required String containerLabel,
+      required String containerImage}) {
+    if (orientation == Orientation.portrait) {
+      return Container(
+          width: MediaQuery.of(context).size.width * 0.45,
+          height: 180,
+          margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30.0),
+              image: DecorationImage(
+                image: NetworkImage(containerImage),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.25), BlendMode.darken),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.50),
+                  spreadRadius: 0,
+                  blurRadius: 30,
+                  offset: const Offset(0, 15),
+                  blurStyle: BlurStyle.normal,
+                )
+              ]),
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            child: Text(
+              containerLabel,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ));
+    } else {
+      return Container(
+          width: MediaQuery.of(context).size.width * 0.22,
+          height: MediaQuery.of(context).size.width * 0.22,
+          margin: const EdgeInsets.only(bottom: 10.00),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30.0),
+              image: DecorationImage(
+                image: NetworkImage(containerImage),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.25), BlendMode.darken),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.50),
+                  spreadRadius: 0,
+                  blurRadius: 30,
+                  offset: const Offset(0, 15),
+                  blurStyle: BlurStyle.normal,
+                )
+              ]),
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            child: Text(
+              containerLabel,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ));
+    }
   }
 }
