@@ -56,8 +56,7 @@ class _HomeState extends State<Home> {
               fontWeight: FontWeight.w600,
               fontSize: 20,
               fontFamily: "Poppins",
-              letterSpacing: 0.5
-          ),
+              letterSpacing: 0.5),
           centerTitle: true,
           actions: [
             PopupMenuButton(
@@ -96,7 +95,8 @@ class _HomeState extends State<Home> {
             child: Container(
                 width: 180,
                 height: 180,
-                decoration: ContainerTheme.getContainerBoxDecoration(cards: cards, index: index),
+                decoration: ContainerTheme.getContainerBoxDecoration(
+                    cards: cards, index: index),
                 alignment: Alignment.bottomLeft,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

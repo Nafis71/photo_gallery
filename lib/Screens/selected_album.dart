@@ -151,7 +151,7 @@ class SelectedAlbum extends StatelessWidget {
                 )
               ],
             ),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -245,9 +245,7 @@ class SelectedAlbum extends StatelessWidget {
                           cards[index]["AlbumDescription"]!,
                           textAlign: TextAlign.start,
                           style: TextThemes.getTextStyle(
-                              fontFamily: "Poppins",
-                              letterSpacing: 0.5
-                          ),
+                              fontFamily: "Poppins", letterSpacing: 0.5),
                         ),
                       )
                     ],
@@ -267,10 +265,9 @@ class SelectedAlbum extends StatelessWidget {
                                 backgroundColor: const Color(0xFF2CAB00),
                                 foregroundColor: Colors.white,
                                 textStyle: TextThemes.getTextStyle(
-                                  fontSize: 20,
+                                    fontSize: 20,
                                     fontFamily: "Poppins",
-                                    letterSpacing: 0.5
-                                ),
+                                    letterSpacing: 0.5),
                                 elevation: 15,
                               ),
                               child: const Text("See More")),
