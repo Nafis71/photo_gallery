@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:photo_gallery/Data/cardData.dart';
+import 'package:photo_gallery/Data/card_data.dart';
+import 'package:photo_gallery/Theme/container_theme.dart';
+import 'package:photo_gallery/Theme/text_theme.dart';
 
 class SelectedAlbum extends StatelessWidget {
   late int index;
@@ -37,11 +39,11 @@ class SelectedAlbum extends StatelessWidget {
             ),
           ),
           title: Text(cards[index]["AlbumName"]!),
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextThemes.getTextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              fontFamily: 'Poppins',
+              fontFamily: "Poppins",
               letterSpacing: 0.5),
           centerTitle: true,
           actions: [
@@ -77,26 +79,19 @@ class SelectedAlbum extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: 325,
-                  margin: const EdgeInsets.all(10.00),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.00),
-                    image: DecorationImage(
-                      image: NetworkImage(cards[index]["AlbumPicture"]!),
-                      fit: BoxFit.cover,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.50),
-                        spreadRadius: 0,
-                        blurRadius: 35,
-                        offset: const Offset(5, 12),
-                        blurStyle: BlurStyle.normal,
-                      )
-                    ],
-                  ),
-                )
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 325,
+                    margin: const EdgeInsets.all(10.00),
+                    decoration: ContainerTheme.getContainerBoxDecoration(
+                        cards: cards,
+                        index: index,
+                        boxShadow: BoxShadow(
+                          color: Colors.black.withOpacity(0.50),
+                          spreadRadius: 0,
+                          blurRadius: 35,
+                          offset: const Offset(5, 12),
+                          blurStyle: BlurStyle.normal,
+                        )))
               ],
             ),
             Wrap(
@@ -107,10 +102,8 @@ class SelectedAlbum extends StatelessWidget {
                       horizontal: 30.00, vertical: 10.00),
                   child: Text(
                     cards[index]["AlbumHeader"]!,
-                    style: const TextStyle(
-                        color: Colors.black,
+                    style: TextThemes.getTextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w400,
                         fontFamily: 'Poppins',
                         letterSpacing: 0.5),
                   ),
@@ -125,13 +118,9 @@ class SelectedAlbum extends StatelessWidget {
                       horizontal: 30.00, vertical: 10.00),
                   child: Text(
                     cards[index]["AlbumDescription"]!,
-                    textAlign: TextAlign.justify,
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Poppins',
-                        letterSpacing: 0.5),
+                    textAlign: TextAlign.start,
+                    style: TextThemes.getTextStyle(
+                        fontFamily: "Poppins", letterSpacing: 0.5),
                   ),
                 )
               ],
@@ -150,10 +139,11 @@ class SelectedAlbum extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF2CAB00),
                           foregroundColor: Colors.white,
-                          textStyle: const TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.5),
+                          textStyle: TextThemes.getTextStyle(
+                            fontSize: 20,
+                            fontFamily: "Poppins",
+                            letterSpacing: 0.5,
+                          ),
                           elevation: 15,
                         ),
                         child: const Text("See More")),
@@ -161,18 +151,17 @@ class SelectedAlbum extends StatelessWidget {
                 )
               ],
             ),
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.00),
+                  padding: const EdgeInsets.symmetric(horizontal: 30.00),
                   child: Text(
                     "Suggestions",
-                    style: TextStyle(
-                        color: Color(0xFF2CAB00),
+                    style: TextThemes.getTextStyle(
+                        color: const Color(0xFF2CAB00),
                         fontSize: 20,
-                        fontWeight: FontWeight.w400,
                         fontFamily: 'Poppins',
                         letterSpacing: 0.5),
                   ),
@@ -188,13 +177,13 @@ class SelectedAlbum extends StatelessWidget {
                     context: context,
                     containerLabel: "Dawn",
                     containerImage:
-                    "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                        "https://images.pexels.com/photos/1008737/pexels-photo-1008737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
                 bottomContainer(
                     orientation: orientation,
                     context: context,
                     containerLabel: "Leaves",
                     containerImage:
-                    "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                        "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
               ],
             )
           ],
@@ -214,22 +203,16 @@ class SelectedAlbum extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.35,
                 height: 298,
                 margin: const EdgeInsets.only(top: 20.00, left: 20.00),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.00),
-                  image: DecorationImage(
-                    image: NetworkImage(cards[index]["AlbumPicture"]!),
-                    fit: BoxFit.cover,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
+                decoration: ContainerTheme.getContainerBoxDecoration(
+                    cards: cards,
+                    index: index,
+                    boxShadow: BoxShadow(
                       color: Colors.black.withOpacity(0.50),
                       spreadRadius: 0,
                       blurRadius: 35,
                       offset: const Offset(5, 12),
                       blurStyle: BlurStyle.normal,
-                    )
-                  ],
-                ),
+                    )),
               ),
             ),
             Expanded(
@@ -244,10 +227,8 @@ class SelectedAlbum extends StatelessWidget {
                             horizontal: 30.00, vertical: 20.00),
                         child: Text(
                           cards[index]["AlbumHeader"]!,
-                          style: const TextStyle(
-                              color: Colors.black,
+                          style: TextThemes.getTextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.w400,
                               fontFamily: 'Poppins',
                               letterSpacing: 0.5),
                         ),
@@ -263,12 +244,10 @@ class SelectedAlbum extends StatelessWidget {
                         child: Text(
                           cards[index]["AlbumDescription"]!,
                           textAlign: TextAlign.start,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.5),
+                          style: TextThemes.getTextStyle(
+                              fontFamily: "Poppins",
+                              letterSpacing: 0.5
+                          ),
                         ),
                       )
                     ],
@@ -287,10 +266,11 @@ class SelectedAlbum extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF2CAB00),
                                 foregroundColor: Colors.white,
-                                textStyle: const TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: 'Poppins',
-                                    letterSpacing: 0.5),
+                                textStyle: TextThemes.getTextStyle(
+                                  fontSize: 20,
+                                    fontFamily: "Poppins",
+                                    letterSpacing: 0.5
+                                ),
                                 elevation: 15,
                               ),
                               child: const Text("See More")),
@@ -298,7 +278,7 @@ class SelectedAlbum extends StatelessWidget {
                       )
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -306,10 +286,9 @@ class SelectedAlbum extends StatelessWidget {
                         padding: EdgeInsets.only(left: 30.00, bottom: 20.00),
                         child: Text(
                           "Suggestions",
-                          style: TextStyle(
-                              color: Color(0xFF2CAB00),
+                          style: TextThemes.getTextStyle(
+                              color: const Color(0xFF2CAB00),
                               fontSize: 20,
-                              fontWeight: FontWeight.w400,
                               fontFamily: 'Poppins',
                               letterSpacing: 0.5),
                         ),
@@ -354,30 +333,22 @@ class SelectedAlbum extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.45,
           height: 180,
           margin: const EdgeInsets.only(top: 20.0, bottom: 10.00),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              image: DecorationImage(
-                image: NetworkImage(containerImage),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.25), BlendMode.darken),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.50),
-                  spreadRadius: 0,
-                  blurRadius: 30,
-                  offset: const Offset(0, 15),
-                  blurStyle: BlurStyle.normal,
-                )
-              ]),
+          decoration: ContainerTheme.getBottomContainerBoxDecoration(
+              containerImage: containerImage,
+              boxShadow: BoxShadow(
+                color: Colors.black.withOpacity(0.50),
+                spreadRadius: 0,
+                blurRadius: 30,
+                offset: const Offset(0, 15),
+                blurStyle: BlurStyle.normal,
+              )),
           alignment: Alignment.bottomLeft,
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             child: Text(
               containerLabel,
-              style: const TextStyle(
+              style: TextThemes.getTextStyle(
                 fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.w700,
@@ -389,30 +360,22 @@ class SelectedAlbum extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.22,
           height: MediaQuery.of(context).size.width * 0.22,
           margin: const EdgeInsets.only(bottom: 10.00),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              image: DecorationImage(
-                image: NetworkImage(containerImage),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.25), BlendMode.darken),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.50),
-                  spreadRadius: 0,
-                  blurRadius: 30,
-                  offset: const Offset(0, 15),
-                  blurStyle: BlurStyle.normal,
-                )
-              ]),
+          decoration: ContainerTheme.getBottomContainerBoxDecoration(
+              containerImage: containerImage,
+              boxShadow: BoxShadow(
+                color: Colors.black.withOpacity(0.50),
+                spreadRadius: 0,
+                blurRadius: 30,
+                offset: const Offset(0, 15),
+                blurStyle: BlurStyle.normal,
+              )),
           alignment: Alignment.bottomLeft,
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             child: Text(
               containerLabel,
-              style: const TextStyle(
+              style: TextThemes.getTextStyle(
                 fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.w700,

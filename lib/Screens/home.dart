@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:photo_gallery/Data/cardData.dart';
-import 'package:photo_gallery/Screens/selectedAlbum.dart';
+import 'package:photo_gallery/Data/card_data.dart';
+import 'package:photo_gallery/Screens/selected_album.dart';
+import 'package:photo_gallery/Theme/container_theme.dart';
+
+import '../Theme/text_theme.dart';
 
 late int itemCount;
 late List<Map<String, String>> cards;
@@ -48,12 +51,13 @@ class _HomeState extends State<Home> {
             ),
           ),
           title: const Text("Photo Gallery"),
-          titleTextStyle: const TextStyle(
+          titleTextStyle: TextThemes.getTextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 20,
-              fontFamily: 'Poppins',
-              letterSpacing: 0.5),
+              fontFamily: "Poppins",
+              letterSpacing: 0.5
+          ),
           centerTitle: true,
           actions: [
             PopupMenuButton(
@@ -92,30 +96,14 @@ class _HomeState extends State<Home> {
             child: Container(
                 width: 180,
                 height: 180,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                    image: DecorationImage(
-                      image: NetworkImage(cards[index]["AlbumPicture"]!),
-                      fit: BoxFit.cover,
-                      colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.25), BlendMode.darken),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.50),
-                        spreadRadius: 0,
-                        blurRadius: 30,
-                        offset: const Offset(0, 15),
-                        blurStyle: BlurStyle.normal,
-                      )
-                    ]),
+                decoration: ContainerTheme.getContainerBoxDecoration(cards: cards, index: index),
                 alignment: Alignment.bottomLeft,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 20.0, vertical: 12.0),
                   child: Text(
                     cards[index]["AlbumName"]!,
-                    style: const TextStyle(
+                    style: TextThemes.getTextStyle(
                       fontSize: 20,
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
