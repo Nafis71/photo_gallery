@@ -3,7 +3,8 @@ import '../../Theme/container_theme.dart';
 import '../../Theme/text_theme.dart';
 
 Widget imageContainer(List<Map<String, String>> cards, int index,
-        {double height = 180,
+        {bool fromHome = true,
+        double height = 180,
         double width = 180,
         EdgeInsets? margin,
         BoxShadow? boxShadow}) =>
@@ -20,15 +21,18 @@ Widget imageContainer(List<Map<String, String>> cards, int index,
           : ContainerTheme.getContainerBoxDecoration(
               cards: cards, index: index),
       alignment: Alignment.bottomLeft,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-        child: Text(
-          cards[index]["AlbumName"]!,
-          style: TextThemes.getTextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
+      child: (fromHome)
+          ? Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+              child: Text(
+                cards[index]["AlbumName"]!,
+                style: TextThemes.getTextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            )
+          : null,
     );

@@ -66,6 +66,7 @@ class SelectedAlbum extends StatelessWidget {
                 imageContainer(
                   cards,
                   index,
+                  fromHome: false,
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: 325,
                   margin: const EdgeInsets.all(10.00),
@@ -184,20 +185,19 @@ class SelectedAlbum extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Container(
+              child: imageContainer(
+                cards,
+                index,
+                fromHome: false,
                 width: MediaQuery.of(context).size.width * 0.35,
                 height: 298,
                 margin: const EdgeInsets.only(top: 15.00, left: 20.00),
-                decoration: ContainerTheme.getContainerBoxDecoration(
-                  cards: cards,
-                  index: index,
-                  boxShadow: BoxShadow(
-                    color: Colors.black.withOpacity(0.50),
-                    spreadRadius: 0,
-                    blurRadius: 35,
-                    offset: const Offset(5, 12),
-                    blurStyle: BlurStyle.normal,
-                  ),
+                boxShadow: BoxShadow(
+                  color: Colors.black.withOpacity(0.50),
+                  spreadRadius: 0,
+                  blurRadius: 35,
+                  offset: const Offset(5, 12),
+                  blurStyle: BlurStyle.normal,
                 ),
               ),
             ),
