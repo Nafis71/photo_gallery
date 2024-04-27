@@ -84,6 +84,7 @@ class _HomeState extends State<Home> {
           crossAxisCount: (orientation == Orientation.portrait ? 2 : 4),
           mainAxisSpacing: 20,
           crossAxisSpacing: 25,
+          childAspectRatio: 1,
         ),
         itemBuilder: (context, index) {
           return InkWell(
@@ -95,8 +96,6 @@ class _HomeState extends State<Home> {
                       builder: (context) => SelectedAlbum(index: index)));
             },
             child: Container(
-                width: 180,
-                height: 180,
                 decoration: ContainerTheme.getContainerBoxDecoration(
                     cards: cards, index: index),
                 alignment: Alignment.bottomLeft,
