@@ -7,9 +7,7 @@ class SelectedAlbum extends StatelessWidget {
   late int index;
   late List<Map<String, String>> cards;
 
-  SelectedAlbum({super.key, required this.index}) {
-    cards = CardData.cards;
-  }
+  SelectedAlbum({super.key, required this.index}) : cards = CardData.cards;
 
   @override
   Widget build(BuildContext context) {
