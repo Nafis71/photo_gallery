@@ -13,4 +13,4 @@ The Flutter Photo Gallery application was created as an ostad assignment. This i
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 # Project Live Link
 Using this live URL, you can preview the project. The device preview options allow you to select different device types based on your needs.<br />
-'Live link-' https://photogallerytonmoy.netlify.app/
+`Live link-` https://photogallerytonmoy.netlify.app/
