@@ -215,7 +215,8 @@ class SelectedAlbum extends StatelessWidget {
                       blurRadius: 35,
                       offset: const Offset(5, 12),
                       blurStyle: BlurStyle.normal,
-                    )),
+                    ),
+                ),
               ),
             ),
             Expanded(
