@@ -3,6 +3,7 @@ import 'package:photo_gallery/Data/card_data.dart';
 import 'package:photo_gallery/Theme/container_theme.dart';
 import 'package:photo_gallery/Theme/text_theme.dart';
 import 'package:photo_gallery/Screens/Widgets/bottom_container.dart';
+import 'package:photo_gallery/Screens/Widgets/image_container.dart';
 
 class SelectedAlbum extends StatelessWidget {
   late int index;
@@ -80,20 +81,18 @@ class SelectedAlbum extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Container(
+                imageContainer(
+                  cards,
+                  index,
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: 325,
                   margin: const EdgeInsets.all(10.00),
-                  decoration: ContainerTheme.getContainerBoxDecoration(
-                    cards: cards,
-                    index: index,
-                    boxShadow: BoxShadow(
-                      color: Colors.black.withOpacity(0.50),
-                      spreadRadius: 0,
-                      blurRadius: 35,
-                      offset: const Offset(5, 12),
-                      blurStyle: BlurStyle.normal,
-                    ),
+                  boxShadow: BoxShadow(
+                    color: Colors.black.withOpacity(0.50),
+                    spreadRadius: 0,
+                    blurRadius: 35,
+                    offset: const Offset(5, 12),
+                    blurStyle: BlurStyle.normal,
                   ),
                 ),
               ],
@@ -326,40 +325,40 @@ class SelectedAlbum extends StatelessWidget {
         ));
   }
 
-  // Widget bottomContainer(
-  //     {required Orientation orientation,
-  //     required BuildContext context,
-  //     required String containerLabel,
-  //     required String containerImage}) {
-  //   return Container(
-  //     width: (orientation == Orientation.portrait)
-  //         ? MediaQuery.of(context).size.width * 0.45
-  //         : MediaQuery.of(context).size.width * 0.22,
-  //     height: 180,
-  //     margin: (orientation == Orientation.portrait)
-  //         ? const EdgeInsets.only(top: 20.0, bottom: 10.00)
-  //         : const EdgeInsets.only(bottom: 10.00),
-  //     decoration: ContainerTheme.getBottomContainerBoxDecoration(
-  //         containerImage: containerImage,
-  //         boxShadow: BoxShadow(
-  //           color: Colors.black.withOpacity(0.50),
-  //           spreadRadius: 0,
-  //           blurRadius: 30,
-  //           offset: const Offset(0, 15),
-  //           blurStyle: BlurStyle.normal,
-  //         )),
-  //     alignment: Alignment.bottomLeft,
-  //     child: Padding(
-  //       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-  //       child: Text(
-  //         containerLabel,
-  //         style: TextThemes.getTextStyle(
-  //           fontSize: 20,
-  //           color: Colors.white,
-  //           fontWeight: FontWeight.w700,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+// Widget bottomContainer(
+//     {required Orientation orientation,
+//     required BuildContext context,
+//     required String containerLabel,
+//     required String containerImage}) {
+//   return Container(
+//     width: (orientation == Orientation.portrait)
+//         ? MediaQuery.of(context).size.width * 0.45
+//         : MediaQuery.of(context).size.width * 0.22,
+//     height: 180,
+//     margin: (orientation == Orientation.portrait)
+//         ? const EdgeInsets.only(top: 20.0, bottom: 10.00)
+//         : const EdgeInsets.only(bottom: 10.00),
+//     decoration: ContainerTheme.getBottomContainerBoxDecoration(
+//         containerImage: containerImage,
+//         boxShadow: BoxShadow(
+//           color: Colors.black.withOpacity(0.50),
+//           spreadRadius: 0,
+//           blurRadius: 30,
+//           offset: const Offset(0, 15),
+//           blurStyle: BlurStyle.normal,
+//         )),
+//     alignment: Alignment.bottomLeft,
+//     child: Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+//       child: Text(
+//         containerLabel,
+//         style: TextThemes.getTextStyle(
+//           fontSize: 20,
+//           color: Colors.white,
+//           fontWeight: FontWeight.w700,
+//         ),
+//       ),
+//     ),
+//   );
+// }
 }

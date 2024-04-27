@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:photo_gallery/Data/card_data.dart';
 import 'package:photo_gallery/Screens/selected_album.dart';
-import 'package:photo_gallery/Theme/container_theme.dart';
+import 'package:photo_gallery/Screens/Widgets/image_container.dart';
 
 import '../Theme/text_theme.dart';
 
@@ -95,22 +95,7 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(
                       builder: (context) => SelectedAlbum(index: index)));
             },
-            child: Container(
-                decoration: ContainerTheme.getContainerBoxDecoration(
-                    cards: cards, index: index),
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 12.0),
-                  child: Text(
-                    cards[index]["AlbumName"]!,
-                    style: TextThemes.getTextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                )),
+            child: imageContainer(cards,index),
           );
         });
   }
