@@ -5,7 +5,7 @@ The Flutter Photo Gallery application was created as an ostad assignment. This i
 # Screenshots
 `Landing Page` <br /><br />
 <img align="left" alt ="LandingPageVertical" width ="300" src="https://github.com/Nafis71/photo_gallery/assets/57575805/0f5bc841-3f5f-4d69-a29a-1284ec4a30f6"></img>
-<img alt ="LandingPageHorizontal" width ="600" src="https://github.com/Nafis71/photo_gallery/assets/57575805/59646f59-5bb2-41f9-8385-7109f3cdf127"></img>
+<img alt ="LandingPageHorizontal" width ="400" src="https://github.com/Nafis71/photo_gallery/assets/57575805/59646f59-5bb2-41f9-8385-7109f3cdf127"></img>
 <br />
 `Selected Album Page` <br /><br />
 <img align="left" alt ="LandingPageVertical" width ="300" src="https://github.com/Nafis71/photo_gallery/assets/57575805/e716345a-9e86-4840-8ce0-dba5b038fadb"></img>
