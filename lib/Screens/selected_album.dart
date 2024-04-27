@@ -12,58 +12,59 @@ class SelectedAlbum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.circular(10.0)),
-                child: const Center(
-                  child: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.white,
-                  ),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: InkWell(
+            splashColor: Colors.transparent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white38,
+                  borderRadius: BorderRadius.circular(10.0)),
+              child: const Center(
+                child: Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.white,
                 ),
               ),
             ),
           ),
-          title: Text(cards[index]["AlbumName"]!),
-          titleTextStyle: TextThemes.getTextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 20,
-              fontFamily: "Poppins",
-              letterSpacing: 0.5),
-          centerTitle: true,
-          actions: [
-            PopupMenuButton(
-              itemBuilder: (context) => [],
-              iconColor: Colors.white,
-              iconSize: 32,
-            )
-          ],
-          backgroundColor: const Color(0xFF2CAB00),
         ),
-        body: SafeArea(
-          child: OrientationBuilder(
-            builder: (BuildContext context, Orientation orientation) {
-              if (orientation == Orientation.portrait) {
-                return portraitTree(context, orientation);
-              } else {
-                return landscapeTree(context, orientation);
-              }
-            },
-          ),
-        ));
+        title: Text(cards[index]["AlbumName"]!),
+        titleTextStyle: TextThemes.getTextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            fontFamily: "Poppins",
+            letterSpacing: 0.5),
+        centerTitle: true,
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (context) => [],
+            iconColor: Colors.white,
+            iconSize: 32,
+          )
+        ],
+        backgroundColor: const Color(0xFF2CAB00),
+      ),
+      body: SafeArea(
+        child: OrientationBuilder(
+          builder: (BuildContext context, Orientation orientation) {
+            if (orientation == Orientation.portrait) {
+              return portraitTree(context, orientation);
+            } else {
+              return landscapeTree(context, orientation);
+            }
+          },
+        ),
+      ),
+    );
   }
 
   Widget portraitTree(BuildContext context, Orientation orientation) {
@@ -79,19 +80,21 @@ class SelectedAlbum extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: 325,
-                    margin: const EdgeInsets.all(10.00),
-                    decoration: ContainerTheme.getContainerBoxDecoration(
-                        cards: cards,
-                        index: index,
-                        boxShadow: BoxShadow(
-                          color: Colors.black.withOpacity(0.50),
-                          spreadRadius: 0,
-                          blurRadius: 35,
-                          offset: const Offset(5, 12),
-                          blurStyle: BlurStyle.normal,
-                        )))
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 325,
+                  margin: const EdgeInsets.all(10.00),
+                  decoration: ContainerTheme.getContainerBoxDecoration(
+                    cards: cards,
+                    index: index,
+                    boxShadow: BoxShadow(
+                      color: Colors.black.withOpacity(0.50),
+                      spreadRadius: 0,
+                      blurRadius: 35,
+                      offset: const Offset(5, 12),
+                      blurStyle: BlurStyle.normal,
+                    ),
+                  ),
+                ),
               ],
             ),
             Wrap(
@@ -280,7 +283,8 @@ class SelectedAlbum extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 30.00, bottom: 20.00),
+                        padding:
+                            const EdgeInsets.only(left: 30.00, bottom: 20.00),
                         child: Text(
                           "Suggestions",
                           style: TextThemes.getTextStyle(
