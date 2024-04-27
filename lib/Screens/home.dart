@@ -67,10 +67,12 @@ class _HomeState extends State<Home> {
           ],
           backgroundColor: const Color(0xFF2CAB00),
         ),
-        body: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) {
-            return gridViewBuilder(orientation);
-          },
+        body: SafeArea(
+          child: OrientationBuilder(
+            builder: (BuildContext context, Orientation orientation) {
+              return gridViewBuilder(orientation);
+            },
+          ),
         ));
   }
 

@@ -53,14 +53,16 @@ class SelectedAlbum extends StatelessWidget {
           ],
           backgroundColor: const Color(0xFF2CAB00),
         ),
-        body: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) {
-            if (orientation == Orientation.portrait) {
-              return portraitTree(context, orientation);
-            } else {
-              return landscapeTree(context, orientation);
-            }
-          },
+        body: SafeArea(
+          child: OrientationBuilder(
+            builder: (BuildContext context, Orientation orientation) {
+              if (orientation == Orientation.portrait) {
+                return portraitTree(context, orientation);
+              } else {
+                return landscapeTree(context, orientation);
+              }
+            },
+          ),
         ));
   }
 
