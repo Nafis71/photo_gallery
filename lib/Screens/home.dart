@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:photo_gallery/Data/card_data.dart';
 import 'package:photo_gallery/Screens/selected_album.dart';
 import 'package:photo_gallery/Screens/Widgets/image_container.dart';
-
+import 'package:photo_gallery/Screens/Widgets/appbar_back_icon.dart';
+import 'package:photo_gallery/Screens/Widgets/pop_menu.dart';
+import 'package:photo_gallery/Screens/Widgets/appbar_title.dart';
 import '../Theme/text_theme.dart';
 
 late int itemCount;
@@ -35,35 +37,13 @@ class _HomeState extends State<Home> {
               onTap: () {
                 SystemNavigator.pop();
               },
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.circular(10.0)),
-                child: const Center(
-                  child: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              child: backIcon(),
             ),
           ),
-          title: const Text("Photo Gallery"),
-          titleTextStyle: TextThemes.getTextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 20,
-              fontFamily: "Poppins",
-              letterSpacing: 0.5),
+          title: appbarTitle("Photo Gallery"),
           centerTitle: true,
           actions: [
-            PopupMenuButton(
-              itemBuilder: (context) => [],
-              iconColor: Colors.white,
-              iconSize: 32,
-            )
+            popMenu(),
           ],
           backgroundColor: const Color(0xFF2CAB00),
         ),
@@ -95,7 +75,7 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(
                       builder: (context) => SelectedAlbum(index: index)));
             },
-            child: imageContainer(cards,index),
+            child: imageContainer(cards, index),
           );
         });
   }
