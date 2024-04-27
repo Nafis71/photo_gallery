@@ -12,3 +12,5 @@ The Flutter Photo Gallery application was created as an ostad assignment. This i
 <img alt ="LandingPageHorizontal" width ="300" src="https://github.com/Nafis71/photo_gallery/assets/57575805/b5be56a3-79e2-4cc8-b10c-8213c2fda0ba"></img>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 # Project Live Link
+Using this live URL, you can preview the project. The device preview options allow you to select different device types based on your needs.
+https://photogallerytonmoy.netlify.app/
